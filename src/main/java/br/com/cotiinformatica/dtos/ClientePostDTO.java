@@ -25,4 +25,6 @@ public class ClientePostDTO{
 		this.email = email;
 	}
 	
+	
+	
 }

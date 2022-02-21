@@ -3,9 +3,11 @@ package br.com.cotiinformatica.interfaces;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import br.com.cotiinformatica.entities.Cliente;
 
+@Repository
 public interface IClienteRepository extends CrudRepository<Cliente, Integer> {
 	
 	// Busca um cliente pelo seu cpf 
