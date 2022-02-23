@@ -93,7 +93,7 @@
 			<version>3.0.0</version>
 		</dependency>
 
-		<!-- Dependências para autenticação com JWT -->
+		<!-- JWT -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -111,7 +111,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Dependencias para envio de email -->
+		<!-- EMAIL -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
