@@ -1,11 +1,12 @@
-//Classe que contém o atributo(campo) que servirá como parâmetro para 
-//o serviço da API (RecuperSenhaController)
-
 package br.com.cotiinformatica.dtos;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 public class RecuperarSenhaPostDTO {
 	
-	//neste caso, o email é o único campo necessário
+	@NotBlank(message = "{email.not.blank}")
+	@Email(message = "{email.email}")
 	private String email; 
 
 	public String getEmail() {

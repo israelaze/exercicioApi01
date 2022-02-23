@@ -4,6 +4,7 @@ package br.com.cotiinformatica.config;
 
 import java.util.Properties;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -11,6 +12,13 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 @Configuration
 public class MailConfiguration {
+
+	// armazenando os valores das variáveis de ambiente
+	@Value("${spring.mail.username}")
+	private String myEmail;
+
+	@Value("${spring.mail.password}")
+	private String myPassword;
 
 	// método para configurar as propriedades de envio de email..
 	@Bean
@@ -23,8 +31,8 @@ public class MailConfiguration {
 		mailSenderImpl.setPort(587);
 
 		// configuração da conta de email utilizada para enviar emails
-		mailSenderImpl.setUsername("cotiaulasnoreply@gmail.com");
-		mailSenderImpl.setPassword("coti123456");
+		mailSenderImpl.setUsername(myEmail);
+		mailSenderImpl.setPassword(myPassword);
 
 		Properties props = mailSenderImpl.getJavaMailProperties();
 		props.put("mail.transport.protocol", "smtp");

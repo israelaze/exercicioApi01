@@ -1,4 +1,4 @@
-// Classe principal de configuração do JWT. Essa classe definicomo irá funcionar o JWT
+// Classe principal de configuração do JWT. Essa classe defini como irá funcionar o JWT
 
 package br.com.cotiinformatica.config;
 

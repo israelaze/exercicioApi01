@@ -2,6 +2,7 @@ package br.com.cotiinformatica.dtos;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class ClientePostDTO{
 	
@@ -9,10 +10,11 @@ public class ClientePostDTO{
 	private String nome;
 	
 	@NotBlank(message =  "{cpf.not.blank}")
+	@Size(max = 15, message = "{cpf.size}")
 	private String cpf;
 	
-	@NotBlank(message =  "{email.not.blank}")
-	@Email
+	@NotBlank(message = "{email.not.blank}")
+	@Email(message = "{email.email}")
 	private String email;
 	
 	public String getNome() {

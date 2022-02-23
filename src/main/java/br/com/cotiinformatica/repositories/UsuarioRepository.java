@@ -1,14 +1,14 @@
-package br.com.cotiinformatica.interfaces;
+package br.com.cotiinformatica.repositories;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import br.com.cotiinformatica.entities.Usuario;
 
 @Repository
-public interface IUsuarioRepository extends CrudRepository<Usuario, Integer>{ //nome da entidade, tipo do Id
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{ //nome da entidade, tipo do Id
 
 	//Método que busque 1 Usuário pelo email 
 	@Query("from Usuario u where u.email = :param") // JPQL
