@@ -1,8 +1,7 @@
-// Classe principal de configuração do JWT. Essa classe defini como irá funcionar o JWT
-
-package br.com.cotiinformatica.config;
+/*package br.com.cotiinformatica.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -57,3 +56,4 @@ public class JwtConfiguration extends WebSecurityConfigurerAdapter {
 }
 
 
+*/

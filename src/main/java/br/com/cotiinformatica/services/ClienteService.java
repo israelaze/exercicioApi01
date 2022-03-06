@@ -38,8 +38,8 @@ public class ClienteService {
 		cliente.setEmail(dto.getEmail());
 
 		repository.save(cliente);
-
-		String response = "Cliente " + cliente.getNome() + " cadastrado com sucesso.";
+		
+		String response = "Cliente " + cliente.getNome() + " cadastrado com sucesso!";
 		return response;
 	}
 

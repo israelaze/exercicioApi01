@@ -8,13 +8,13 @@ import org.springframework.stereotype.Repository;
 import br.com.cotiinformatica.entities.Usuario;
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{ //nome da entidade, tipo do Id
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 
-	//Método que busque 1 Usuário pelo email 
+	//Busca 1 Usuário pelo email 
 	@Query("from Usuario u where u.email = :param") // JPQL
 	public Usuario findByEmail(@Param("param")String email);
 	
-	//Método que busque 1 Usuário pelo email e senha
+	//Busca 1 Usuário pelo email e senha
 	@Query("from Usuario u where u.email = :param1 and u.senha = :param2") //JPQL
 	public Usuario findByEmailAndSenha(@Param("param1") String email, @Param("param2") String senha);
 }

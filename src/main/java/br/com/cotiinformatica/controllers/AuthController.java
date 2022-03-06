@@ -17,17 +17,17 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 
+@CrossOrigin
 @RestController
 @AllArgsConstructor
-@Api(tags = "Autenticação")
+@Api(tags = "Login")
 @RequestMapping(value = "/api/auth")
 public class AuthController {
 	
 	private final AuthService service;
 	
-	@CrossOrigin
 	@PostMapping
-	@ApiOperation(value = "Login")
+	@ApiOperation(value = "autenticar")
 	public ResponseEntity<UsuarioGetDTO> autenticar(@Valid @RequestBody AuthPostDTO dto){
 		
 		try {

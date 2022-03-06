@@ -16,6 +16,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 
+@CrossOrigin
 @RestController
 @AllArgsConstructor
 @Api(tags = "Recuperação de senha")
@@ -23,11 +24,10 @@ import lombok.AllArgsConstructor;
 public class RecuperarSenhaController {
 
 	private final RecuperarSenhaService service;
-
-	@CrossOrigin
+	
 	@PostMapping
 	@ApiOperation(value = "recuperar")
-	public ResponseEntity<String> post(@Valid @RequestBody RecuperarSenhaPostDTO dto) {
+	public ResponseEntity<String> recuperar(@Valid @RequestBody RecuperarSenhaPostDTO dto) {
 
 		try {
 			String response = service.recuperarSenha(dto);

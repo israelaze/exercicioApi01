@@ -17,6 +17,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 
+@CrossOrigin
 @RestController
 @AllArgsConstructor
 @Api(tags = "Menu Usuários")
@@ -25,7 +26,6 @@ public class UsuariosController {
 
 	private final UsuarioService service;
 
-	@CrossOrigin
 	@PostMapping
 	@ApiOperation(value = "cadastrar")
 	public ResponseEntity<String> cadastrar(@Valid @RequestBody UsuarioPostDTO dto) {

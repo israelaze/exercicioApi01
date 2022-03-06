@@ -1,4 +1,5 @@
 // Classe para fazer o envio de email a partir de uma conta já configurada
+
 package br.com.cotiinformatica.senders;
 
 import org.springframework.beans.factory.annotation.Autowired;

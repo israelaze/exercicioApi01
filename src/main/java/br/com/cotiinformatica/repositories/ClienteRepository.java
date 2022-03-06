@@ -15,8 +15,3 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 	Cliente findByCpf(@Param("param") String cpf);
 	
 }
-
-/* JPQL – JAVA PERSISTENCE QUERY LANGUAGE
-Sintaxe para escrita de consultas em aplicações Java que fazem acesso a
-banco de dados com Hibernate e JPA. Ou seja, substitui o uso do SQL para
-escrita de consultas.  */

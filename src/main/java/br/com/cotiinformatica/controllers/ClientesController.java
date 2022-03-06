@@ -25,15 +25,16 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 
+
 @RestController
 @AllArgsConstructor
 @Api(tags = "Menu Clientes")
 @RequestMapping(value = "/api/clientes")
+@CrossOrigin
 public class ClientesController {
 
 	private ClienteService service;
 
-	@CrossOrigin
 	@PostMapping
 	@ApiOperation(value = "cadastrar")
 	public ResponseEntity<String> cadastrar(@Valid @RequestBody ClientePostDTO dto) {
@@ -47,9 +48,8 @@ public class ClientesController {
 		}
 	}
 
-	@CrossOrigin
 	@GetMapping
-	@ApiOperation(value = "listar todos")
+	@ApiOperation(value = "buscar todos")
 	public ResponseEntity<List<ClienteGetDTO>> buscarTodos() {
 
 		try {
@@ -61,7 +61,6 @@ public class ClientesController {
 		}
 	}
 
-	@CrossOrigin
 	@GetMapping(value = "/{idCliente}")
 	@ApiOperation(value = "buscar pelo ID")
 	public ResponseEntity<ClienteGetDTO> busrcarId(@PathVariable("idCliente") Integer idCliente) {
@@ -75,7 +74,6 @@ public class ClientesController {
 		}
 	}
 
-	@CrossOrigin
 	@PutMapping
 	@ApiOperation(value = "atualizar")
 	public ResponseEntity<String> atualizar(@Valid @RequestBody ClientePutDTO dto) {
@@ -89,7 +87,6 @@ public class ClientesController {
 		}
 	}
 
-	@CrossOrigin
 	@DeleteMapping(value = "/{idCliente}")
 	@ApiOperation(value = "excluir")
 	public ResponseEntity<String> excluir(@PathVariable("idCliente") Integer idCliente) {
