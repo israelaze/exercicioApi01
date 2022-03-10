@@ -32,5 +32,4 @@ public class ClienteGetDTO {
 		this.email = email;
 	}
 	
-
 }

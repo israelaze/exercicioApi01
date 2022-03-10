@@ -1,3 +1,5 @@
+// Classe que faz a segurança da API
+
 package br.com.cotiinformatica.config;
 
 import java.util.Arrays;
@@ -24,26 +26,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private Environment env;
-
+	
+	// JWT
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		if (Arrays.asList(env.getActiveProfiles()).contains("test")) {
 			http.headers().frameOptions().disable();
 		}
 
-	/*http.cors().and().csrf().disable();
-		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-		http.authorizeRequests().anyRequest().permitAll(); */
-
 		// mapear a classe JwtAuthorizationFilter (segurança da API)
-		http.csrf().disable().addFilterAfter(new JWTAuthorizationFilter(), // Classe que faz a segurança da API
-				UsernamePasswordAuthenticationFilter.class).authorizeRequests()
-				.antMatchers("/api/usuarios").permitAll() // permitir cadastrar usuários																										
-				.antMatchers("/api/auth").permitAll() // permitir autenticação do usuário
-				.antMatchers("/api/recuperarsenha").permitAll() // permitir recuperar senha de acesso
-				// permitir o envio de parâmetros adicionais no protocolo HTTP como por ex:
-				// Header, Patch, et..
-				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated();
+		http.csrf().disable().addFilterAfter(new JWTAuthorizationFilter(), 
+			UsernamePasswordAuthenticationFilter.class).authorizeRequests()
+			//permitir o cadastro de usuário		
+			.antMatchers("/api/usuarios").permitAll() 	
+			//permitir autenticação do usuário
+			.antMatchers("/api/auth").permitAll()
+			//permitir recuperar senha de acesso
+			.antMatchers("/api/recuperarsenha").permitAll() 
+			// permitir o envio de parâmetros adicionais no protocolo HTTP como por ex: Header, Patch, et..
+			.antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated();
 	}
 
 	// configuração para liberar a documentação do SWAGGER
@@ -53,7 +54,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			"/configuration/security", "/swagger-ui.html", "/webjars/**",
 			// -- Swagger UI v3 (OpenAPI)
 			"/v3/api-docs/**", "/swagger-ui/**"
-			// other public endpoints of your API may be appended to this array
 	};
 
 	@Override
@@ -61,6 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		web.ignoring().antMatchers(SWAGGER);
 	}
 
+	// CORS
 	@Bean
 	CorsConfigurationSource corsConfigurationSource() {
 		CorsConfiguration configuration = new CorsConfiguration().applyPermitDefaultValues();

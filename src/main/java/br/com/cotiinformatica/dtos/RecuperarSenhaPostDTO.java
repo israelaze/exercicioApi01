@@ -17,7 +17,4 @@ public class RecuperarSenhaPostDTO {
 		this.email = email;
 	}
 	
-	
-	
-
 }

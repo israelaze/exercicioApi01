@@ -4,8 +4,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import br.com.cotiinformatica.dtos.AuthPostDTO;
 import br.com.cotiinformatica.dtos.UsuarioGetDTO;
+import br.com.cotiinformatica.dtos.AuthPostDTO;
 import br.com.cotiinformatica.entities.Usuario;
 import br.com.cotiinformatica.exceptions.BadRequestException;
 import br.com.cotiinformatica.repositories.UsuarioRepository;

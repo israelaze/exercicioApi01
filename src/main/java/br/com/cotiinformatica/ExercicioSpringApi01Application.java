@@ -1,4 +1,3 @@
-
 package br.com.cotiinformatica;
 
 import org.springframework.boot.SpringApplication;

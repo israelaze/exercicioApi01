@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.cotiinformatica.dtos.AuthPostDTO;
 import br.com.cotiinformatica.dtos.UsuarioGetDTO;
+import br.com.cotiinformatica.dtos.AuthPostDTO;
 import br.com.cotiinformatica.exceptions.ServiceException;
 import br.com.cotiinformatica.services.AuthService;
 import io.swagger.annotations.Api;

@@ -25,7 +25,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 
-
 @RestController
 @AllArgsConstructor
 @Api(tags = "Menu Clientes")
