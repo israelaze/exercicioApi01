@@ -4,7 +4,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import br.com.cotiinformatica.dtos.UsuarioGetDTO;
+import br.com.cotiinformatica.dtos.AuthGetDTO;
 import br.com.cotiinformatica.dtos.AuthPostDTO;
 import br.com.cotiinformatica.entities.Usuario;
 import br.com.cotiinformatica.exceptions.BadRequestException;
@@ -20,7 +20,7 @@ public class AuthService {
 
 	private final UsuarioRepository repository;
 
-	public UsuarioGetDTO autenticar(AuthPostDTO dto) {
+	public AuthGetDTO autenticar(AuthPostDTO dto) {
 
 		// Procurar o usuário no banco através do email e senha. Criptografar a senha
 		Usuario usuario = repository.findByEmailAndSenha(dto.getEmail(), Criptografia.criptografar(dto.getSenha()));
@@ -30,7 +30,7 @@ public class AuthService {
 		}
 
 		// objeto para aramazenar os dados do usuário
-		UsuarioGetDTO getDto = new UsuarioGetDTO();
+		AuthGetDTO getDto = new AuthGetDTO();
 
 		getDto.setIdUsuario(usuario.getIdUsuario());
 		getDto.setNome(usuario.getNome());

@@ -24,7 +24,7 @@ public class ClienteService {
 
 	private final ClienteRepository repository;
 
-	public String cadastrar(ClientePostDTO dto) {
+	public ClienteGetDTO cadastrar(ClientePostDTO dto) {
 
 		// verificar se o CPF já está cadastrado no banco de dados
 		if (repository.findByCpf(dto.getCpf()) != null) {
@@ -36,11 +36,18 @@ public class ClienteService {
 		cliente.setNome(dto.getNome());
 		cliente.setCpf(dto.getCpf());
 		cliente.setEmail(dto.getEmail());
-
+		
+		//salvando
 		repository.save(cliente);
 		
-		String response = "Cliente " + cliente.getNome() + " cadastrado com sucesso!";
-		return response;
+		//passando o cliente para um dto
+		ClienteGetDTO getDto = new ClienteGetDTO();
+		getDto.setIdCliente(cliente.getIdCliente());
+		getDto.setNome(cliente.getNome());
+		getDto.setCpf(cliente.getCpf());
+		getDto.setEmail(cliente.getEmail());
+		
+		return getDto;
 	}
 
 	public List<ClienteGetDTO> buscarTodos() {

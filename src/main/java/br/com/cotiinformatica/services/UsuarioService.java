@@ -4,6 +4,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import br.com.cotiinformatica.dtos.UsuarioGetDTO;
 import br.com.cotiinformatica.dtos.UsuarioPostDTO;
 import br.com.cotiinformatica.entities.Usuario;
 import br.com.cotiinformatica.exceptions.BadRequestException;
@@ -18,7 +19,7 @@ public class UsuarioService {
 
 	private final UsuarioRepository repository;
 
-	public String cadastrar(UsuarioPostDTO dto) {
+	public UsuarioGetDTO cadastrar(UsuarioPostDTO dto) {
 
 		// verificar se o email já está cadastrado no banco
 		if (repository.findByEmail(dto.getEmail()) != null) {
@@ -31,10 +32,16 @@ public class UsuarioService {
 		usuario.setEmail(dto.getEmail());
 		usuario.setSenha(Criptografia.criptografar(dto.getSenha()));
 
+		//salvando
 		repository.save(usuario);
+		
+		//passando o usuário para um dto
+		UsuarioGetDTO getDto = new UsuarioGetDTO();
+		getDto.setIdUsuario(usuario.getIdUsuario());
+		getDto.setNome(usuario.getNome());
+		getDto.setEmail(usuario.getEmail());
 
-		String response = "Usuário " + usuario.getNome() + " cadastrado com sucesso.";
-		return response;
+		return getDto;
 
 	}
 }

@@ -36,14 +36,14 @@ public class ClientesController {
 
 	@PostMapping
 	@ApiOperation(value = "cadastrar")
-	public ResponseEntity<String> cadastrar(@Valid @RequestBody ClientePostDTO dto) {
+	public ResponseEntity<ClienteGetDTO> cadastrar(@Valid @RequestBody ClientePostDTO dto) {
 
 		try {
-			String response = service.cadastrar(dto);
-			return ResponseEntity.status(HttpStatus.CREATED).body(response);
+			ClienteGetDTO getDto = service.cadastrar(dto);
+			return ResponseEntity.status(HttpStatus.CREATED).body(getDto);
 
 		} catch (ServiceException e) {
-			return ResponseEntity.internalServerError().body(e.getMessage());
+			return ResponseEntity.internalServerError().build();
 		}
 	}
 

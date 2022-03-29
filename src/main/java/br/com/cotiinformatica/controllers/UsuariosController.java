@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.cotiinformatica.dtos.UsuarioGetDTO;
 import br.com.cotiinformatica.dtos.UsuarioPostDTO;
 import br.com.cotiinformatica.exceptions.ServiceException;
 import br.com.cotiinformatica.services.UsuarioService;
@@ -28,14 +29,14 @@ public class UsuariosController {
 
 	@PostMapping
 	@ApiOperation(value = "cadastrar")
-	public ResponseEntity<String> cadastrar(@Valid @RequestBody UsuarioPostDTO dto) {
+	public ResponseEntity<UsuarioGetDTO> cadastrar(@Valid @RequestBody UsuarioPostDTO dto) {
 
 		try {
-			String response = service.cadastrar(dto);
-			return ResponseEntity.status(HttpStatus.CREATED).body(response);
+			UsuarioGetDTO getDto = service.cadastrar(dto);
+			return ResponseEntity.status(HttpStatus.CREATED).body(getDto);
 
 		} catch (ServiceException e) {
-			return ResponseEntity.internalServerError().body(e.getMessage());
+			return ResponseEntity.internalServerError().build();
 		}
 	}
 

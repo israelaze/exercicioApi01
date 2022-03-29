@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.cotiinformatica.dtos.UsuarioGetDTO;
+import br.com.cotiinformatica.dtos.AuthGetDTO;
 import br.com.cotiinformatica.dtos.AuthPostDTO;
 import br.com.cotiinformatica.exceptions.ServiceException;
 import br.com.cotiinformatica.services.AuthService;
@@ -28,10 +28,10 @@ public class AuthController {
 	
 	@PostMapping
 	@ApiOperation(value = "autenticar")
-	public ResponseEntity<UsuarioGetDTO> autenticar(@Valid @RequestBody AuthPostDTO dto){
+	public ResponseEntity<AuthGetDTO> autenticar(@Valid @RequestBody AuthPostDTO dto){
 		
 		try {
-			UsuarioGetDTO getDto = service.autenticar(dto);
+			AuthGetDTO getDto = service.autenticar(dto);
 			return ResponseEntity.ok(getDto);
 			
 		}
