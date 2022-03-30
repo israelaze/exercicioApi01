@@ -41,8 +41,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/api/usuarios").permitAll() 	
 			//permitir autenticação do usuário
 			.antMatchers("/api/auth").permitAll()
-			//permitir recuperar senha de acesso
-			.antMatchers("/api/recuperarsenha").permitAll() 
 			// permitir o envio de parâmetros adicionais no protocolo HTTP como por ex: Header, Patch, et..
 			.antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated();
 	}
