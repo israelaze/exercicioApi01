@@ -70,13 +70,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		return source;
 	}
 
-	public void addCorsMappings(CorsRegistry registry) {
-		/*
-		 * Habilitar qualquer projeto para que tenha permissão de fazer chamadas aos
-		 * serviços da API..
-		 */
-		registry.addMapping("/**").allowedOrigins("https://angular-clientes.herokuapp.com").allowedMethods("*")
-				.maxAge(3600L).allowedHeaders("*").exposedHeaders("Authorization").allowCredentials(true);
-	}
-
+	 
+	    public void addCorsMappings(CorsRegistry corsRegistry) {
+	        corsRegistry.addMapping("/**")
+	                .allowedOrigins("https://angular-clientes.herokuapp.com")
+	                .allowedMethods("*")
+	                .maxAge(3600L)
+	                .allowedHeaders("*")
+	                .exposedHeaders("Authorization")
+	                .allowCredentials(true);
+	    }
 }
