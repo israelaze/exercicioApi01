@@ -17,6 +17,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+<<<<<<< HEAD
+=======
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+>>>>>>> 411e16d64d240afed864f402495bcfec7c2de83f
 
 import br.com.cotiinformatica.filters.JWTAuthorizationFilter;
 
@@ -33,18 +37,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		if (Arrays.asList(env.getActiveProfiles()).contains("test")) {
 			http.headers().frameOptions().disable();
 		}
+<<<<<<< HEAD
 		
 		/*	
 		http.cors().and().csrf().disable();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.authorizeRequests().anyRequest().permitAll();
 		*/
+=======
+>>>>>>> 411e16d64d240afed864f402495bcfec7c2de83f
 
 		// mapear a classe JwtAuthorizationFilter (segurança da API)
 		http.csrf().disable().addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
 				.authorizeRequests()
+<<<<<<< HEAD
 				// permitir o acesso ao console do banco de dados h2
 				.antMatchers("/h2-console/**").permitAll()
+=======
+>>>>>>> 411e16d64d240afed864f402495bcfec7c2de83f
 				// permitir o cadastro de usuário
 				.antMatchers("/api/usuarios").permitAll()
 				// permitir autenticação do usuário
@@ -77,4 +87,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		return source;
 	}
 
+<<<<<<< HEAD
+=======
+	 
+	    public void addCorsMappings(CorsRegistry corsRegistry) {
+	        corsRegistry.addMapping("/**")
+	                .allowedOrigins("https://angular-clientes.herokuapp.com")
+	                .allowedMethods("*")
+	                .maxAge(3600L)
+	                .allowedHeaders("*")
+	                .exposedHeaders("Authorization")
+	                .allowCredentials(true);
+	    }
+>>>>>>> 411e16d64d240afed864f402495bcfec7c2de83f
 }

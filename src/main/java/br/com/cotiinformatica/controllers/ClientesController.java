@@ -6,6 +6,10 @@ import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+<<<<<<< HEAD
+=======
+import org.springframework.web.bind.annotation.CrossOrigin;
+>>>>>>> 411e16d64d240afed864f402495bcfec7c2de83f
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +32,10 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @Api(tags = "Menu Clientes")
 @RequestMapping(value = "/api/clientes")
+<<<<<<< HEAD
+=======
+@CrossOrigin
+>>>>>>> 411e16d64d240afed864f402495bcfec7c2de83f
 public class ClientesController {
 
 	private ClienteService service;
@@ -73,6 +81,7 @@ public class ClientesController {
 
 	@PutMapping
 	@ApiOperation(value = "atualizar")
+<<<<<<< HEAD
 	public ResponseEntity<ClienteGetDTO> atualizar(@Valid @RequestBody ClientePutDTO dto) {
 
 		try {
@@ -81,6 +90,16 @@ public class ClientesController {
 
 		} catch (ServiceException e) {
 			return ResponseEntity.internalServerError().build();
+=======
+	public ResponseEntity<String> atualizar(@Valid @RequestBody ClientePutDTO dto) {
+
+		try {
+			String response = service.atualizar(dto);
+			return ResponseEntity.ok(response);
+
+		} catch (ServiceException e) {
+			return ResponseEntity.internalServerError().body(e.getMessage());
+>>>>>>> 411e16d64d240afed864f402495bcfec7c2de83f
 		}
 	}
 

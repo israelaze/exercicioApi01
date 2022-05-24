@@ -97,12 +97,20 @@ public class ClienteService {
 		return dto;
 	}
 
+<<<<<<< HEAD
 	public ClienteGetDTO atualizar(ClientePutDTO dto) {
+=======
+	public String atualizar(ClientePutDTO dto) {
+>>>>>>> 411e16d64d240afed864f402495bcfec7c2de83f
 
 		// procurar o cliente no banco de dados atraves do id..
 		Optional<Cliente> result = repository.findById(dto.getIdCliente());
 
+<<<<<<< HEAD
 		if (result.isEmpty()) {
+=======
+		if (result == null || result.isEmpty()) {
+>>>>>>> 411e16d64d240afed864f402495bcfec7c2de83f
 			throw new EntityNotFoundException("Cliente não encontrado!");
 		}
 
@@ -115,6 +123,7 @@ public class ClienteService {
 
 		repository.save(cliente);
 
+<<<<<<< HEAD
 		// passando o cliente para um dto
 		ClienteGetDTO getDto = new ClienteGetDTO();
 		getDto.setIdCliente(cliente.getIdCliente());
@@ -124,6 +133,10 @@ public class ClienteService {
 
 		return getDto;
 
+=======
+		String response = "Cliente " + cliente.getNome() + " atualizado com sucesso.";
+		return response;
+>>>>>>> 411e16d64d240afed864f402495bcfec7c2de83f
 	}
 
 	public String excluir(Integer idCliente) {
