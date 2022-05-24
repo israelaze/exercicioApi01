@@ -2,11 +2,12 @@
 
 package br.com.cotiinformatica.dtos;
 
-public class UsuarioGetDTO {
+public class AuthGetDTO {
 
 	private Integer idUsuario;
 	private String nome;
 	private String email;
+	private String accessToken;
 
 	public Integer getIdUsuario() {
 		return idUsuario;
@@ -30,6 +31,14 @@ public class UsuarioGetDTO {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getAccessToken() {
+		return accessToken;
+	}
+
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
 	}
 
 }

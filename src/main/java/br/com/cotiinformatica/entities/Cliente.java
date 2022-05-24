@@ -1,5 +1,7 @@
 package br.com.cotiinformatica.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,22 +9,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity    //a classe também é uma entidade
-@Table(name = "cliente")
-public class Cliente {
-	
+@Entity   
+@Table(name = "clientes")
+public class Cliente implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // o valor da PK será gerado pela coluna de auto_incremento
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	@Column(name = "idcliente")
 	private Integer idCliente;
 	
-	@Column(name = "nome", length = 150, nullable = false)
+	@Column(name = "nome", length = 60, nullable = false)
 	private String nome;
 	
 	@Column(name = "cpf", length = 15, nullable = false, unique = true)
 	private String cpf;
 	
-	@Column(name = "email", length = 100, nullable = false)
+	@Column(name = "email", length = 60, nullable = false)
 	private String email;
 	
 	public Cliente() {
